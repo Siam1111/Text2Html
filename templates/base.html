@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text_2_html</title>
+    <link rel="stylesheet" href="{% static 'styles/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+</head>
+
+<body>
+    <nav id="navbar" class="d-flex bg-dark py-2" aria-label="Seventh navbar example">
+        <div class="container-fluid mt-2">
+            <a class="navbar-brand text-light fw-bold" href="#">TEXT<big>2</big>HTML</a>
+        </div>
+        <button class="btn btn-outline-light mx-3" id="submit-btn">Convert to Html</button>
+    </nav>
+    <nav id="tools" class="navbar navbar-expand-xxl navbar-dark bg-light" aria-label="Seventh navbar example">
+        <div class="container-fluid">
+            <select id="elements">
+                <option value="h1">h1</option>
+                <option value="h2">h2</option>
+                <option value="h3">h3</option>
+                <option value="h4">h4</option>
+                <option value="h5">h5</option>
+                <option value="h6">h6</option>
+                <option value="p">p</option>
+                <option value="div">div</option>
+                <option value="b">b</option>
+                <option value="i">i</option>
+            </select>
+            <label>Font Color</label>
+            <input type="color" name="fontcolor" id="font-color" />
+            <label>Background Color</label>
+            <input type="color" name="bgcolor" id="bg-color" />
+            <select id="text-align">
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+                <option value="center">Center</option>
+            </select>
+        </div>
+    </nav>
+    <div id="content">
+        <h3 style="display: inline;">Text</h3>(<i> Press Enter Each Time Your Done</i>)
+        <textarea id="text" class="w-100" style="height: 150px;">
+        </textarea>
+    </div>
+    <h3>Result</h3>
+    <div id="result" style="height: 100px;overflow: scroll;"> </div>
+    <h3>Full Result</h3>
+    <div id="full-result" style="height: 200px;overflow: scroll;"></div>
+
+    <div id="html">
+        <div id="code"></div>
+        <div id="code-result"></div>
+        <button class="btn btn-secondary btn-sm" id="close">Close</button>
+        <a href="{% url 'save'%}" class="btn btn-primary btn-sm" id="save">Save</a>
+        <button class="btn btn-primary btn-sm" id="copy">Copy</button>
+    </div>
+    <script src="{% static 'scripts/index.js' %}"></script>
+</body>
+
+</html>
